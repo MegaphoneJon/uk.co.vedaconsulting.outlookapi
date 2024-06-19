@@ -1,6 +1,7 @@
 <?php
 
 require_once 'outlookapi.civix.php';
+use CRM_Outlookapi_ExtensionUtil as E;
 define('PHONE_TYPE_ASSISTANT', 'Assistant');
 
 /**
@@ -189,11 +190,11 @@ function outlookapi_civicrm_navigationMenu(&$params){
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_permission
  */
 function outlookapi_civicrm_permission(&$permissions) {
-  $prefix = ts('CiviOutlook API') . ': ';  // name of extension or module
-  $permissions['view APIkeys'] = array(
-    $prefix . ts('view APIkeys'),         // label
-    ts('View API keys of all contacts'), // description
-  );
+  $prefix = E::ts('CiviOutlook API') . ': ';
+  $permissions['view APIkeys'] = [
+    'label' => $prefix . E::ts('view APIkeys'),
+    'description' => E::ts('View API keys of all contacts'),
+  ];
 }
 
 /**
